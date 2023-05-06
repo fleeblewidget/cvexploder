@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			:root {
+				--about-me-colour: #934FBB;
+				--education-colour: #009CFF;
+				<% for (var i=0; i<experience.length; i++) { %>
+					<%= "--" + experience[i].companyShortCode + "-colour: " + experience[i].jobColour + ";" %>
+				<% } %>
+				<% for (var i=0; i<volunteering.length; i++) { %>
+					<%= "--" + volunteering[i].companyShortCode + "-colour: " + volunteering[i].jobColour + ";" %>
+				<% } %> 
+			}
+
+			body {
+				background: radial-gradient(circle, rgba(214,241,209,1) 0%, rgba(212,185,228,1) 79%);
+				font-family: georgia;
+			}
+
+			#cv {
+				display: flex;
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 3em;
+				color: var(--about-me-colour);
+			}
+
+			#contact-details {
+				text-align: center;
+				font-style: italic;
+    			color: var(--about-me-colour);
+			}
+
+			#contact-details span {
+				padding-left: 2em;
+				padding-righ: 2em;
+			}
+
+			.main-section {
+				width: 25em;
+				text-align: justify;
+				margin: 2em;
+				padding: 0.5em 1em;
+			}
+
+			.main-section-heading {
+				text-align: center;
+				margin-bottom: 2em;
+				color: var(--about-me-colour);
+			}
+
+			#about-me-section h2 {
+				text-align: center;
+			}
+
+			#summary-section a {
+				color: #456c3d;
+			}
+
+			.skills-subsection {
+				position: relative;
+			}
+
+			.skill-link {
+				color: #750788;
+    			font-style: oblique;
+    			font-size: small;
+    			position: absolute;
+    			right: 50px;
+			}
+
+			.job {
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				background-color: #f9e2fe;
+				position: relative;
+				margin-bottom: 3em;
+			}
+
+			.job h4 {
+				margin-bottom: 0px;
+			}
+
+			.company-type {
+    			margin-top: -30px;
+    			margin-left: 5px;
+    			font-style: italic;
+			}
+
+			.job-dates {
+				transform-origin: left; /* Rotate around a fixed point or our positioning goes wrong */
+				transform: rotate(270deg);
+				position: absolute;
+				left: -13px;
+				top: 150px;
+			}
+
+			#volunteering-section .job-dates {
+				transform-origin: right;
+				transform: rotate(90deg);
+				position: absolute;
+				right: -12px;
+				top: 330px;			
+			}
+
+			.job-title {
+				position: absolute;
+ 				right: 0.5em;
+    			top: 0.5em;
+    			font-style: italic;
+			}
+
+			.job-title2 {
+				position: absolute;
+ 				right: 0.5em;
+    			top: 1.5em;
+    			font-style: italic;
+			}
+
+			.job-responsibilities ul {
+				padding-left: 1em;
+				margin-top: 0.5em;
+			}
+
+			.stack-list {
+				margin-left: 1em;
+			}
+
+			.education-details {
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				background-color: #f9e2fe;
+				position: relative;
+				margin-bottom: 3em;
+				color: var(--education-colour);
+				border: 2px solid var(--education-colour);
+			}
+
+			.education-qual-date {
+				transform-origin: right;
+				transform: rotate(90deg);
+				position: absolute;
+				right: -12px;
+				top: 40px;		
+			}
+
+			<% for (var i=0; i<experience.length; i++) { %>
+				<%= "#" + experience[i].companyShortCode + "{" %>
+					<%= "color: var(--" + experience[i].companyShortCode + "-colour);" %>
+					<%= "border: 2px solid var(--" + experience[i].companyShortCode + "-colour);" %>
+				}
+			<% } %>
+
+			<% for (var i=0; i<volunteering.length; i++) { %>
+				<%= "#" + volunteering[i].companyShortCode + "{" %>
+					<%= "color: var(--" + volunteering[i].companyShortCode + "-colour);" %>
+					<%= "border: 2px solid var(--" + volunteering[i].companyShortCode + "-colour);" %>
+				}
+			<% } %> 
+
+			.highlighted {
+				position: relative;
+				z-index: 2;
+			}
+
+			.highlighted:before {
+				content:"";
+				z-index:1;
+				left:-0.5em;
+				top:-0.1em;
+				border-width:2px;
+				border-style:solid;
+				border-color:red;
+				position:absolute;
+				border-right-color:transparent;
+				width:100%;
+				height:1em;
+				transform:rotate(2deg);
+				opacity:0.7;
+				border-radius:50%;
+				padding:0.1em 0.25em;
+			}
+
+			.highlighted:after {
+				content:"";
+				z-index:1;
+				left:-0.5em;
+				top:0.1em;
+				padding:0.1em 0.25em;
+				border-width:2px;
+				border-style:solid;
+				border-color:red;
+				border-left-color:transparent;
+				border-top-color:transparent;
+				position:absolute;
+				width:100%;
+				height:1em;
+				transform:rotate(-1deg);
+				opacity:0.7;
+				border-radius:50%;
+			}
+
+			.faded {
+				opacity: 0.25;
+			}
+
+			#overlay {
+				z-index: 10;
+				position: absolute;
+    			left: 50%;
+    			top: 50%;
+    			background: white;
+    			border-radius: 8px;
+    			padding: 0.5em 1em;
+			}
+
+			#overlay h2 {
+				text-transform: capitalize;
+				text-align: center;
+			}
+
+			.skills-overlay-close {
+				text-decoration: none;
+    			font-weight: bold;
+    			float: right;
+			}
+
+			.invisible {
+				visibility: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div id="clear-highlighting-link" class="invisible"><a href="" onclick="clearHighlighting()">Clear highlighting</a></div>
+			<div id="name" class="default-fade"><h1><%= name -%></h1></div>
+			<div id="contact-details" class="default-fade">
+				<span><%= phone %></span>
+				<span><%= email %></span>
+				<span><%= github %></span>
+			</div>
+			<div id="cv">
+				<div id="experience-section" class="main-section">
+					<h2 id="experience-heading" class="main-section-heading default-fade">Experience</h2>
+					<% for (var expNum=0; expNum<experience.length; expNum++) { 
+						var expItem = experience[expNum]; %>
+						<div id="<%= expItem.companyShortCode %>" class="job <%= expItem.jobTags %>">
+							<div class="company-type"><%= expItem.companyType %></div>
+							<h3 class="company-name"><%= expItem.companyName %></h3>
+							<div class="job-title"><%= expItem.jobTitle %></div>
+							<div class="job-dates"><%= expItem.jobDates %></div>
+							<div class="job-responsibilities">
+								<h4>Responsibilities</h4>
+								<ul>
+									<% for (var respNum=0; respNum<expItem.responsibilities.length; respNum++) { %>
+										<li class="<%= expItem.responsibilities[respNum].keywords %>">
+											<%= expItem.responsibilities[respNum].text %>
+										</li>
+									<% } %>
+								</ul>
+							</div>
+							<div class="job-stack">
+								<h4>Stack</h4>
+								<div class="stack-list">
+									<% for (var techNum=0; techNum< expItem.techs.length; techNum++) { %>
+										<span class="<%= expItem.techs[techNum] %>"><%= expItem.techs[techNum] %></span>
+									<% } %>
+								</div>
+							</div>
+						</div>
+					<% } %>
+				</div>
+				<div id="about-me-section" class="main-section default-fade">
+					<h2 id="about-me-heading" class="main-section-heading">About Me</h2>
+					<div id="summary-section">
+						<h3>Summary</h3>
+						<% function generateTaggedText(text,tags) {
+							let resultText = text;
+							for (var i=0; i < tags.length; i++) {
+								/* TODO - potential bug if search text appears in a different keyword! */
+								resultText = resultText.replace(tags[i].searchText,'<a href="#" title="Highlight relevant experience" class="clickable summary-link" data-keyword="' + tags[i].keyword + '">' + tags[i].searchText + '</a>');
+							}
+							return resultText;
+						} %>
+						<% for (var sumNum=0; sumNum < personalSummarySentences.length; sumNum++) { %>
+							<p class="personal-summary"><%- generateTaggedText(personalSummarySentences[sumNum].text, personalSummarySentences[sumNum].tags) %></p>
+						<% } %>
+					</div>
+					<div id="skills-section">
+						<h3>Skills</h3>
+						<% for (var catNum=0; catNum < skillCategories.length; catNum++) { %>
+							<div class="skills-subsection">
+								<h4><%= skillCategories[catNum].categoryName %></h4>
+								<ul>
+									<% for (var skillNum=0; skillNum < skillCategories[catNum].skills.length; skillNum++) {
+											var skill = skillCategories[catNum].skills[skillNum] %>
+										<li><%= skill.name %> <a href="#" class="skill-link clickable" data-skill="<%= skill.tag %>" data-skill-description="<%= skill.shortDescription %>" title="Show roles"><%= skill.linkText %></a></li>
+									<% } %>
+								</ul>
+							</div>
+						<% } %>
+					</div>
+				</div>
+				<div id="contact-education-volunteering" class="main-section">
+					<div id="volunteering-section">
+						<h2 id="volunteering-heading" class="main-section-heading default-fade">Volunteering</h2>
+						<% for (var volNum=0; volNum<volunteering.length; volNum++) { 
+								var volunteering = volunteering[volNum]; %>
+							<div id="<%= volunteering.companyShortCode %>" class="job <%= volunteering.jobTags %>">
+								<div class="company-type"><%= volunteering.companyType %></div>
+								<h3 class="company-name"><%= volunteering.companyName %></h3>
+								<div class="job-title"><%= volunteering.jobTitle %></div>
+								<div class="job-dates"><%= volunteering.jobDates %></div>
+								<div class="job-responsibilities">
+									<h4>Responsibilities</h4>
+									<ul>
+										<% for (var respNum=0; respNum<volunteering.responsibilities.length; respNum++) { %>
+											<li class="<%= volunteering.responsibilities[respNum].keywords %>">
+												<%= volunteering.responsibilities[respNum].text %>
+											</li>
+										<% } %>
+									</ul>
+								</div>
+								<div class="job-stack">
+									<h4>Stack</h4>
+									<div class="stack-list">
+										<% for (var techNum=0; techNum< volunteering.techs.length; techNum++) { %>
+											<span class="<%= volunteering.techs[techNum] %>"><%= volunteering.techs[techNum] %></span>
+										<% } %>
+									</div>
+								</div>
+							</div>
+						<% } %>
+					</div>
+					<div id="education-section" class="default-fade">
+						<h2 id="education-heading" class="main-section-heading">Education</h2>
+						<% for (var qualNum=0; qualNum < education.length; qualNum++) {
+							var qual = education[qualNum]; %>
+							<div class="education-details">
+								<div class="education-institution"><%= qual.institution %></div>
+								<div class="education-qual-date"><%= qual.qualDate %></div>
+								<div class="education-qualification"><%= qual.qualification %></div>
+								<div class="education-grade"><%= qual.grade %></div>
+							</div>
+						<% } %>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script>
+			function clearHighlighting() {
+				Array.from(document.querySelectorAll(".highlighted")).forEach((match) => {
+					match.classList.remove('highlighted');
+				});
+				document.querySelector('#clear-highlighting-link').classList.add('invisible');
+			}
+
+			function highlightKeyword(keyword) {
+				clearHighlighting();
+
+				Array.from(document.querySelectorAll(`.${keyword}`)).forEach((match) => {
+					match.classList.add('highlighted');
+				});
+
+				document.querySelector('#clear-highlighting-link').classList.remove('invisible');
+			};
+
+			function clearRoles() {
+				clearHighlighting();
+
+				let overlay = document.getElementById('overlay')
+				overlay.remove();
+
+				Array.from(document.querySelectorAll('.faded')).forEach((match) => {
+					match.classList.remove('faded');
+				});
+			}
+
+			function showRolesFor(skill, skillDescription) {
+				/* TODO - clear any existing role highlighting, this looks ugly if you click another link! */
+
+				Array.from(document.querySelectorAll('.default-fade')).forEach((match) => {
+					match.classList.add('faded');
+				});
+				Array.from(document.querySelectorAll(`#experience-section > div:not(.${skill}-job)`)).forEach((match) => {
+					match.classList.add('faded');
+				});
+				Array.from(document.querySelectorAll(`#volunteering-section > div:not(.${skill}-job)`)).forEach((match) => {
+					match.classList.add('faded');
+				});
+
+				const cvMain = document.querySelector('#cv');
+				const skillDetails = document.createElement('div');
+				skillDetails.id = 'overlay';
+
+				const closeLink = document.createElement('a');
+				closeLink.className = 'skills-overlay-close clickable';
+				closeLink.appendChild(document.createTextNode('\u00D7'));
+				closeLink.title = 'close';
+				closeLink.href = '#';
+				closeLink.addEventListener('click', function(e) {
+					e.preventDefault();
+					clearRoles();
+				});
+				skillDetails.appendChild(closeLink);
+
+				const skillTitle = document.createElement('h2');
+				skillTitle.appendChild(document.createTextNode(skill));
+				skillDetails.appendChild(skillTitle);
+    			skillDetails.appendChild(document.createTextNode(skillDescription));
+			    cvMain.appendChild(skillDetails);
+
+			    highlightKeyword(skill);
+			}
+
+			Array.from(document.querySelectorAll('.clickable')).forEach(function(link){
+				link.addEventListener('click', function(e){
+					e.preventDefault();
+
+					if (link.classList.contains('skill-link')) {
+						showRolesFor(e.target.dataset.skill, e.target.dataset.skillDescription);
+					}
+
+					if (link.classList.contains('summary-link')) {
+						highlightKeyword(e.target.dataset.keyword);
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

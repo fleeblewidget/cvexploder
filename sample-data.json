@@ -1,0 +1,89 @@
+{
+    "name": "Sam Sample",
+    "phone": "01234 567 869",
+    "email": "real.person@example.com",
+    "github": "github.com/fleeblewidget/cvexploder",
+    "experience": [{
+        "companyName": "Big Company Inc.",
+        "companyShortCode": "big-co",
+        "jobTags": "cats-job toys-job",
+        "companyType": "Software for cats",
+        "jobDates": "July 2022 - Present",
+        "jobTitle": "Cat wrangler",
+        "responsibilities": [{"text": "Toy programming", "keywords": "technical"},
+                             {"text": "Kitty acceptance testing", "keywords": "liaison"},
+                             {"text": "Management of 10-20 kittens", "keywords": "manager animals"}],
+        "jobColour": "#BB5D4F",
+        "techs": ["cats", "toys"]
+        },
+        {
+        "companyName": "Mom's Friendly Dog Co.",
+        "companyShortCode": "mom-co",
+        "jobTags": "dogs-job toys-job",
+        "companyType": "Accessories for Dogs",
+        "jobDates": "Jan 1999 - July 2022",
+        "jobTitle": "Dog food tester",
+        "responsibilities": [{"text": "Dog food testing", "keywords": "technical"},
+                             {"text": "Puppy acceptance testing", "keywords": "liaison animals"},
+                             {"text": "Owner training sessions", "keywords": "technical liaison"}],
+        "jobColour": "#255860",
+        "techs": ["dogs", "toys", "food"]
+        }],
+    "volunteering" : [{
+        "companyName": "Pop's Pet Pampery",
+        "companyShortCode": "pops",
+        "jobTags": "cats-job dogs-job toys-job",
+        "companyType": "Hospice for terminal pets",
+        "jobDates": "Feb 2002 - April 2017",
+        "jobTitle": "Play assistant",
+        "responsibilities": [{"text": "Play with pets", "keywords": "animals"}],
+        "jobColour": "#009900",
+        "techs": ["cats", "dogs", "toys"]
+    }],
+    "education": [{
+        "institution": "London School of Dogenomics",
+        "qualDate": "1999",
+        "qualification": "PhD in Dog Physics",
+        "grade": "Distinction"
+    },{
+        "institution": "Discount Evening School",
+        "qualDate": "2022",
+        "qualification": "Foundation certificate in Cat Stuff",
+        "grade": "Pass"
+    }],
+    "personalSummarySentences": [{
+        "text": "Pet lover and maker of things, experienced in animal handling",
+        "tags": [{"searchText": "animal", "keyword": "animals"}]
+    },
+    {
+        "text": "Best suited to a role with both hands-on technical and people / animal facing responsibilities",
+        "tags": [{"searchText": "technical", "keyword": "technical"},
+                 {"searchText": "people / animal facing responsibilities", "keyword": "liaison"}]
+    }],
+    "skillCategories": [
+        {
+            "categoryName": "Animals",
+            "skills": [{
+                "name": "Dog-related tasks",
+                "tag": "dogs",
+                "shortDescription": "Over 20 years of experience with many kinds of dogs",
+                "linkText": "1 role, 20+ years"
+            },
+            {
+                "name": "Cat herding",
+                "tag": "cats",
+                "shortDescription": "Recently moved into cats, up-to-date knowledge and enthusiasm for the subject",
+                "linkText": "1 role, 1 year"
+            }]
+        },
+        {
+            "categoryName": "Accessories",
+            "skills": [{
+                "name" : "Toy development",
+                "tag": "toys",
+                "shortDescription": "Specialisation over entire career, broad experience with multiple animals",
+                "linkText": "2 roles, 24 years"
+            }]
+        }
+    ]
+}

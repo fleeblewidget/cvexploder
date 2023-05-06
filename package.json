@@ -1,0 +1,19 @@
+{
+  "name": "cvexploder",
+  "version": "1.0.0",
+  "description": "Script to produce exploded CV",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fleeblewidget/cvexploder/blob/main/LICENSE"
+  },
+  "keywords": [
+    "CV",
+    "script"
+  ],
+  "author": "fleeblewidget",
+  "license": "SEE LICENSE IN LICENSE",
+}
