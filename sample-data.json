@@ -13,6 +13,7 @@
         "responsibilities": [{"text": "Toy programming", "keywords": "technical"},
                              {"text": "Kitty acceptance testing", "keywords": "liaison"},
                              {"text": "Management of 10-20 kittens", "keywords": "manager animals"}],
+        "achievements": ["Overhauled kitten evaluation processes leading to 20% increased customer satisfaction"],
         "jobColour": "#BB5D4F",
         "techs": ["cats", "toys"]
         },
@@ -26,6 +27,7 @@
         "responsibilities": [{"text": "Dog food testing", "keywords": "technical"},
                              {"text": "Puppy acceptance testing", "keywords": "liaison animals"},
                              {"text": "Owner training sessions", "keywords": "technical liaison"}],
+        "achievements": ["Developed and updated industry-standard dog manual for 15 years", "Organised DogWorld conference bringing in 20k new clients"],
         "jobColour": "#255860",
         "techs": ["dogs", "toys", "food"]
         }],
@@ -37,6 +39,7 @@
         "jobDates": "Feb 2002 - April 2017",
         "jobTitle": "Play assistant",
         "responsibilities": [{"text": "Play with pets", "keywords": "animals"}],
+        "achievements": ["Supported over 200 families through end of pet life care"],
         "jobColour": "#009900",
         "techs": ["cats", "dogs", "toys"]
     }],

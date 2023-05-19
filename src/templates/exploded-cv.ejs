@@ -262,6 +262,14 @@
 									<% } %>
 								</ul>
 							</div>
+							<div class="job-achievements">
+								<h4>Achievements</h4>
+									<% for (var achNum=0; achNum<expItem.achievements.length; achNum++) { %>
+										<li>
+											<%= expItem.achievements[achNum] %>
+										</li>
+									<% } %>
+							</div>
 							<div class="job-stack">
 								<h4>Stack</h4>
 								<div class="stack-list">
@@ -323,6 +331,14 @@
 											</li>
 										<% } %>
 									</ul>
+								</div>
+								<div class="job-achievements">
+								<h4>Achievements</h4>
+									<% for (var achNum=0; achNum<expItem.achievements.length; achNum++) { %>
+										<li>
+											<%= expItem.achievements[achNum] %>
+										</li>
+									<% } %>
 								</div>
 								<div class="job-stack">
 									<h4>Stack</h4>
