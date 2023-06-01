@@ -1,0 +1,229 @@
+:root {
+				--about-me-colour: #934FBB;
+				--education-colour: #009CFF;
+				<% for (var i=0; i<experience.length; i++) { %>
+					<%= "--" + experience[i].companyShortCode + "-colour: " + experience[i].jobColour + ";" %>
+				<% } %>
+				<% for (var i=0; i<volunteering.length; i++) { %>
+					<%= "--" + volunteering[i].companyShortCode + "-colour: " + volunteering[i].jobColour + ";" %>
+				<% } %> 
+			}
+
+			body {
+				background: radial-gradient(circle, rgba(214,241,209,1) 0%, rgba(212,185,228,1) 79%);
+				font-family: georgia;
+			}
+
+			#cv {
+				display: flex;
+			}
+
+			h1 {
+				text-align: center;
+				font-size: 3em;
+				color: var(--about-me-colour);
+			}
+
+			#contact-details {
+				text-align: center;
+				font-style: italic;
+    			color: var(--about-me-colour);
+			}
+
+			#contact-details span {
+				padding-left: 2em;
+				padding-righ: 2em;
+			}
+
+			.main-section {
+				width: 25em;
+				text-align: justify;
+				margin: 2em;
+				padding: 0.5em 1em;
+			}
+
+			.main-section-heading {
+				text-align: center;
+				margin-bottom: 2em;
+				color: var(--about-me-colour);
+			}
+
+			#about-me-section h2 {
+				text-align: center;
+			}
+
+			#summary-section a {
+				color: #456c3d;
+			}
+
+			.skills-subsection {
+				position: relative;
+			}
+
+			.skill-link {
+				color: #750788;
+    			font-style: oblique;
+    			font-size: small;
+    			position: absolute;
+    			right: 50px;
+			}
+
+			.job {
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				background-color: #f9e2fe;
+				position: relative;
+				margin-bottom: 3em;
+			}
+
+			.job h4 {
+				margin-bottom: 0px;
+			}
+
+			.company-type {
+    			margin-top: -30px;
+    			margin-left: 5px;
+    			font-style: italic;
+			}
+
+			.job-dates {
+				transform-origin: left; /* Rotate around a fixed point or our positioning goes wrong */
+				transform: rotate(270deg);
+				position: absolute;
+				left: -13px;
+				top: 150px;
+			}
+
+			#volunteering-section .job-dates {
+				transform-origin: right;
+				transform: rotate(90deg);
+				position: absolute;
+				right: -12px;
+				top: 330px;			
+			}
+
+			.job-title {
+				position: absolute;
+ 				right: 0.5em;
+    			top: 0.5em;
+    			font-style: italic;
+			}
+
+			.job-title2 {
+				position: absolute;
+ 				right: 0.5em;
+    			top: 1.5em;
+    			font-style: italic;
+			}
+
+			.job-responsibilities ul {
+				padding-left: 1em;
+				margin-top: 0.5em;
+			}
+
+			.stack-list {
+				margin-left: 1em;
+			}
+
+			.education-details {
+				padding: 0.5em 1em;
+				border-radius: 8px;
+				background-color: #f9e2fe;
+				position: relative;
+				margin-bottom: 3em;
+				color: var(--education-colour);
+				border: 2px solid var(--education-colour);
+			}
+
+			.education-qual-date {
+				transform-origin: right;
+				transform: rotate(90deg);
+				position: absolute;
+				right: -12px;
+				top: 40px;		
+			}
+
+			<% for (var i=0; i<experience.length; i++) { %>
+				<%= "#" + experience[i].companyShortCode + "{" %>
+					<%= "color: var(--" + experience[i].companyShortCode + "-colour);" %>
+					<%= "border: 2px solid var(--" + experience[i].companyShortCode + "-colour);" %>
+				}
+			<% } %>
+
+			<% for (var i=0; i<volunteering.length; i++) { %>
+				<%= "#" + volunteering[i].companyShortCode + "{" %>
+					<%= "color: var(--" + volunteering[i].companyShortCode + "-colour);" %>
+					<%= "border: 2px solid var(--" + volunteering[i].companyShortCode + "-colour);" %>
+				}
+			<% } %> 
+
+			.highlighted {
+				position: relative;
+				z-index: 2;
+			}
+
+			.highlighted:before {
+				content:"";
+				z-index:1;
+				left:-0.5em;
+				top:-0.1em;
+				border-width:2px;
+				border-style:solid;
+				border-color:red;
+				position:absolute;
+				border-right-color:transparent;
+				width:100%;
+				height:1em;
+				transform:rotate(2deg);
+				opacity:0.7;
+				border-radius:50%;
+				padding:0.1em 0.25em;
+			}
+
+			.highlighted:after {
+				content:"";
+				z-index:1;
+				left:-0.5em;
+				top:0.1em;
+				padding:0.1em 0.25em;
+				border-width:2px;
+				border-style:solid;
+				border-color:red;
+				border-left-color:transparent;
+				border-top-color:transparent;
+				position:absolute;
+				width:100%;
+				height:1em;
+				transform:rotate(-1deg);
+				opacity:0.7;
+				border-radius:50%;
+			}
+
+			.faded {
+				opacity: 0.25;
+			}
+
+			#overlay {
+				z-index: 10;
+				position: absolute;
+    			left: 50%;
+    			top: 50%;
+    			background: white;
+    			border-radius: 8px;
+    			padding: 0.5em 1em;
+			}
+
+			#overlay h2 {
+				text-transform: capitalize;
+				text-align: center;
+			}
+
+			.skills-overlay-close {
+				text-decoration: none;
+    			font-weight: bold;
+    			float: right;
+			}
+
+			.invisible {
+				visibility: hidden;
+			}
